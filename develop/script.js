@@ -69,3 +69,38 @@ getApi(requestURL);
 //     alert('Error, check console');
 //     console.error(error);
 // }
+
+
+// drag and drop feature 
+const image_drop_area = document.querySelector("#image_drop_area");
+var uploaded_image;
+var imageURL;
+
+image_drop_area.addEventListener('dragover', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    event.dataTransfer.dropEffect = 'copy';
+ });
+
+image_drop_area.addEventListener('drop', (event) => {
+    event.stopPropagation();
+    event.preventDefault();
+    const fileList = event.dataTransfer.files;
+    console.log(fileList);
+    document.querySelector("#file_name").textContent = fileList[0].name;
+    readImage(fileList[0]);
+});
+
+readImage = (file) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+    uploaded_image = event.target.result;
+    // data finishes as a URI which allows us to use the image for later use
+    console.log("uri" + uploaded_image);
+    document.querySelector("#image_drop_area").style.backgroundImage = `url(${uploaded_image})`;
+    });
+    reader.readAsDataURL(file);
+}
+
+// https://api.trace.moe/search?url=https://images.plurk.com/32B15UXxymfSMwKGTObY5e.jpg
+// guessing what we can do is put the URI there instead of the link for url=URI?

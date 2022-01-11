@@ -9,6 +9,17 @@
 </head>
 <body>
 
+
+
+    <!-- drag and drop feature -->
+    <p>Drag and drop an image into the box</p>
+    <div id="image_drop_area"></div>
+    <p id="file_name"></p>
+    <form action="https://api.trace.moe/search" method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" /> <!-- allows user to open and grab image from folder -->
+        <input type="submit" />
+    </form> 
+
     <script src="./develop/script.js"></script>
 </body>
 </html>

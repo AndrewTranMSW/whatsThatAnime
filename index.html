@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="./develop/styles.css">
     <title>What's that Anime</title>
 </head>
 <body>
+    <header>
+        <div class="hero-section">
+            <div class="hero-section-text">
+            <h1>What's that Anime?</h1>
+            <h5>Simply upload a URL link or a screenshot of an anime to find out which one it is, and some bonus gifs!</h5>
+            </div>
+        </div>
+    </header>
+
+    <div class="input-group">
+        <span class="input-group-label">$</span>
+        <input class="input-group-field" type="number">
+        <div class="input-group-button">
+          <input type="submit" class="button" value="Submit">
+        </div>
+      </div>
+
     <input type="file" id="fileInput" multiple/>
     <input type="text" name="image" id="imageLink"/>
     <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
@@ -17,5 +36,11 @@
 
 
     <script src="./develop/script.js"></script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+    $(document).foundation();
+  </script>
+</body>
 </body>
 </html>

@@ -81,6 +81,7 @@ submitButton.addEventListener("click", function(event) {
     fetchTraceAPI(url);
 })
 
+var container = document.querySelector(".container");
 var gifContainer = document.querySelector("#gifs");
 // &limit=25&offset=0&rating=pg-13&lang=en
 function getGiphyApi(name) {
@@ -97,6 +98,7 @@ function getGiphyApi(name) {
                 gifEl.setAttribute('src', gif.images.fixed_height.url)
                 gifContainer.append(gifEl)
             })
+            container.classList.remove("hide");
         });
 }
 // function executes api call taking in a url

@@ -7,18 +7,14 @@
     --lilac: #3B2244;
     --teal: #105160;
     --green: #2d7670;
-    --ivory: #E7E6E3;
+    --ivory: #e7e6e3;
     --black: #000000;
-
-
  }
 
-
 .hero-section {
-    background: url("./headerimage.jpg") 50% no-repeat;
-    opacity: 0.3;
+    background-image: url("./newbackground.png");
     background-size: cover;
-    height: 60vh;
+    height: 40vh;
     text-align: center;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -28,14 +24,21 @@
             align-items: center;
     -webkit-justify-content: center;
         -ms-flex-pack: center;
-            justify-content: center;
-            
+            justify-content: center;        
   }
   
   .hero-section .hero-section-text {
     font-family: 'Permanent Marker', cursive;
+  }
+
+#title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 10em;
     color: var(--black);
     text-shadow: 1px 1px 2px var(--lilac);
-    
-  }
- 
+}
+
+#subtitle {
+    font-family: 'Kalam', cursive;
+    font-size: 2em;
+}

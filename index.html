@@ -8,17 +8,13 @@
     <title>What's that Anime</title>
 </head>
 <body>
+    <input type="file" id="fileInput" multiple/>
+    <input type="text" name="image" id="imageLink"/>
+    <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
+    <button type="submit" id="submit-button">submit</button>
+    <h1 id="theAnimeName"></h1>
+    <div id="theAnimePic"></div>
 
-
-
-    <!-- drag and drop feature -->
-    <p>Drag and drop an image into the box</p>
-    <div id="image_drop_area"></div>
-    <p id="file_name"></p>
-    <form action="https://api.trace.moe/search" method="POST" enctype="multipart/form-data">
-        <input type="file" name="image" /> <!-- allows user to open and grab image from folder -->
-        <input type="submit" />
-    </form> 
 
     <script src="./develop/script.js"></script>
 </body>

@@ -69,3 +69,66 @@ getApi(requestURL);
 //     alert('Error, check console');
 //     console.error(error);
 // }
+
+// fetch requestfor trace moe API for url 
+// select each element used for fetch request
+var submitButton = document.querySelector("#submit-button");
+var imageName = document.querySelector("#imageLink");
+
+// event occurs when submit button is pressed
+submitButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    var url = imageName.value.trim()
+    fetchTraceAPI(url);
+})
+
+// function executes api call taking in a url
+// only defined once assuming all the data we grab will be the same
+function fetchTraceAPI(url) {
+    fetch(`https://api.trace.moe/search?anilistInfo&url=${encodeURIComponent(`${url}`)}`)
+            .then(function(response) {
+                return response.json();
+            })
+            .then((res) => {
+                console.log(res);
+                Aniname.innerHTML = res.result[0].anilist.title.romaji;
+                pic.appendChild(uploaded_pic);
+            })
+}
+
+// fetch request for downloaded file
+var pic = document.getElementById("theAnimePic");
+var Aniname = document.getElementById("theAnimeName");
+var uploaded_pic = document.createElement("img");
+
+const fileInput = document.getElementById("fileInput");
+fileInput.addEventListener("change", (event) => {
+    // event occurs when the value of an element has been changed.
+
+    const fileList = event.target.files;
+    // It's part of the File API, which is available in all modern browsers except IE9 and earlier. files is a FileList of the file(s) selected by the user in the input[type=file] element you're referencing via the id in your id variable.
+    // Each entry in the FileList is a File, which gives you the name of the file (without path information) and which can be used for accessing the files.
+
+    // loading text for display to show call is working
+    Aniname.innerHTML = "LOADING";
+    console.log(fileList);
+
+    // followed steps on api doc
+    const formData = new FormData();
+    formData.append("image", fileList[0]);
+
+    //first fetch gets basic guess on the stored file image
+    fetch("https://api.trace.moe/search", {
+        method: "POST",
+        body: formData,
+    }).then(response => response.json())
+    .then((data) => {
+        console.log(data);
+        // at this point, we have the data but to get any aditional information about the anime, we need a url
+        // this first fetch allows us to grab a url to then run another fetch request. 
+        let url = data.result[0].image;
+        uploaded_pic.src = url;
+        // second fetch gets extra data 
+        fetchTraceAPI(url);
+    })
+})

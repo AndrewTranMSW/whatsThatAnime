@@ -14,10 +14,6 @@ function getApi(requestURL) {
         });
 }
 
-
-
-
-
 // Here we define our query as a multi-line string
 // Storing it in a separate .graphql/.gql file is also possible
 

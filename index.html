@@ -23,11 +23,17 @@
         </div>
     </header>
 
-    <!-- This will populate when the submit button is pressed. Will be a hidden element until the 'loading' is complete. To hide, add 'hide' to the parent div class of container -->
     <input type="file" id="fileInput" multiple/>
-    <input type="text" name="image" id="imageLink"/>
     <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
-    <button type="submit" id="submit-button">submit</button>
+
+    <div class="input-group">
+        <span class="input-group-label">Please choose a file</span>
+        <input class="input-group-field" type="text" name="image" id="imageLink"/>
+        <div class="input-group-button">
+            <button type="submit" id="submit-button" class="button">submit</button>
+        </div>
+    </div>
+    
     <h1 id="theAnimeName"></h1>
     <div id="theAnimePic"></div>
 

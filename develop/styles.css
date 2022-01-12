@@ -3,6 +3,16 @@
     padding: 0;
     margin: 0;
 }
+ :root {
+    --lilac: #3B2244;
+    --teal: #105160;
+    --green: #2d7670;
+    --ivory: #E7E6E3;
+    --black: #000000;
+
+
+ }
+
 
 .hero-section {
     background: url("./headerimage.jpg") 50% no-repeat;
@@ -23,7 +33,9 @@
   }
   
   .hero-section .hero-section-text {
-    color: #fefefe;
-    text-shadow: 1px 1px 2px #0a0a0a;
+    font-family: 'Permanent Marker', cursive;
+    color: var(--black);
+    text-shadow: 1px 1px 2px var(--lilac);
+    
   }
  

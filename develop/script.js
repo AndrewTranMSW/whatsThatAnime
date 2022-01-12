@@ -1,3 +1,5 @@
+$(document).foundation();
+
 // var a = "hello";
 // console.log(a);
 // This Works!

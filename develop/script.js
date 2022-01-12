@@ -3,7 +3,8 @@
 // This Works!
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
-var requestURL = 'https://api.giphy.com/v1/gifs/search?api_key=n2y3Fcb9H0LUrjbN7SJui121LbMZIq8g&q=&limit=25&offset=0&rating=pg-13&lang=en';
+var anime; 
+
 
 function getApi(requestURL) {
     fetch(requestURL)
@@ -11,7 +12,8 @@ function getApi(requestURL) {
             console.log(response);
         });
 }
-getApi(requestURL);
+
+
 
 
 
@@ -82,6 +84,24 @@ submitButton.addEventListener("click", function(event) {
     fetchTraceAPI(url);
 })
 
+var gifContainer = document.querySelector("#gifs");
+// &limit=25&offset=0&rating=pg-13&lang=en
+function getGiphyApi(name) {
+    gifContainer.innerHTML = '';
+    var giphyRequestURL = 'https://api.giphy.com/v1/gifs/search?api_key=n2y3Fcb9H0LUrjbN7SJui121LbMZIq8g&q=' + name;
+    fetch(giphyRequestURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function(data) {
+            console.log(data);
+            data.data.forEach(function(gif) {
+                let gifEl = document.createElement('img')
+                gifEl.setAttribute('src', gif.images.fixed_height.url)
+                gifContainer.append(gifEl)
+            })
+        });
+}
 // function executes api call taking in a url
 // only defined once assuming all the data we grab will be the same
 function fetchTraceAPI(url) {
@@ -92,7 +112,10 @@ function fetchTraceAPI(url) {
             .then((res) => {
                 console.log(res);
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;
+                anime = res.result[0].anilist.title.romaji;
+                console.log(anime);
                 pic.appendChild(uploaded_pic);
+                getGiphyApi(anime);
             })
 }
 

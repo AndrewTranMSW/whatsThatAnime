@@ -4,8 +4,8 @@
 // This Works!
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
-var anime; 
 
+var anime; 
 
 function getApi(requestURL) {
     fetch(requestURL)
@@ -122,6 +122,8 @@ function fetchTraceAPI(url) {
                 console.log(storedSearches);
                 pic.appendChild(uploaded_pic);
                 getGiphyApi(anime);
+                console.log(anime);
+                aniSearch(anime);
             })
 }
 
@@ -219,3 +221,21 @@ function readURL(input) {
           $('.image-upload-wrap').removeClass('image-dropping');
   });
   
+
+  //Jikan API. This is called in the fetchTraceAPI
+  aniSearch()
+  function aniSearch() {
+
+    fetch('https://api.jikan.moe/v3/search/anime?q='+anime)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) => {
+    aniStats(myJson);
+  });
+};
+
+function aniStats(response) {
+    console.log(response)
+
+};

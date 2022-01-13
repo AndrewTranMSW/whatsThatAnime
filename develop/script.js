@@ -223,19 +223,19 @@ function readURL(input) {
   
 
   //Jikan API. This is called in the fetchTraceAPI
-  aniSearch()
+  
   function aniSearch() {
-
-    fetch('https://api.jikan.moe/v3/search/anime?q='+anime)
+  fetch('https://api.jikan.moe/v3/search/anime?q='+anime)
   .then((response) => {
     return response.json();
   })
   .then((myJson) => {
     aniStats(myJson);
+    console.log(myJson.results[0].synopsis);
   });
 };
 
 function aniStats(response) {
     console.log(response)
-
+    // console.log(response.results[0].synopsis)
 };

@@ -5,7 +5,6 @@
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
 
-var anime; 
 
 function getApi(requestURL) {
     fetch(requestURL)
@@ -132,10 +131,6 @@ function fetchTraceAPI(url) {
                     
                     objValues = Object.values(storedSearches);
                     console.log(objValues);
-                console.log(anime);
-                aniSearch(anime);
-            })
-}
 
                     if(!objValues.includes(anime)){
                         console.log("work if the anime is new");
@@ -238,20 +233,3 @@ prevSearched.addEventListener('click', function(event) {
 });
 
 storage();
-  //Jikan API. This is called in the fetchTraceAPI
-  
-  function aniSearch() {
-  fetch('https://api.jikan.moe/v3/search/anime?q='+anime)
-  .then((response) => {
-    return response.json();
-  })
-  .then((myJson) => {
-    aniStats(myJson);
-    console.log(myJson.results[0].synopsis);
-  });
-};
-
-function aniStats(response) {
-    console.log(response)
-    // console.log(response.results[0].synopsis)
-};

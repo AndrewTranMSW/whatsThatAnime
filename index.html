@@ -23,6 +23,9 @@
         </div>
     </header>
 
+    <input type="file" id="fileInput" multiple/>
+    <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
+
     <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
     <div class="file-upload">
     <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
@@ -41,14 +44,15 @@
         </div>
     </div>
     </div>
-
-    <div id="previous-searches">
-        <ul id="list">
-        </ul>
-    </div>
+    
+        <div id="previous-searches">
+            <ul id="list">
+            </ul>
+        </div>
     
     <h1 id="theAnimeName"></h1>
     <div id="theAnimePic"></div>
+
     
     <div class="container hide">
         <!-- Div for the Anime facts as a list, the <span> tag nested in the <li> tag will populate the anime info -->
@@ -78,7 +82,7 @@
     
 
     
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>

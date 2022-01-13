@@ -159,3 +159,16 @@
 /* body {
     background-image: linear-gradient(var(--lilac), var(--black));
 } */
+
+.card {
+  margin: 20px auto;
+  border-radius: 5px;
+}
+
+.card-divider {
+  background-color: #3B2244;
+}
+
+li {
+ list-style: none;
+}

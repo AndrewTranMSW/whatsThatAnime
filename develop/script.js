@@ -4,8 +4,8 @@
 // This Works!
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
-var anime; 
 
+var anime; 
 
 function getApi(requestURL) {
     fetch(requestURL)
@@ -71,16 +71,17 @@ function getApi(requestURL) {
 
 // fetch requestfor trace moe API for url 
 // select each element used for fetch request
-var submitButton = document.querySelector("#submit-button");
-var imageName = document.querySelector("#imageLink");
+// var submitButton = document.querySelector("#submit-button");
+// var imageName = document.querySelector("#imageLink");
 
-// event occurs when submit button is pressed
-submitButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    var url = imageName.value.trim()
-    fetchTraceAPI(url);
-})
-
+// // event occurs when submit button is pressed
+// submitButton.addEventListener("click", function(event) {
+//     event.preventDefault();
+//     var url = imageName.value.trim()
+//     fetchTraceAPI(url);
+// })
+var storedSearches = [];
+var container = document.querySelector(".container");
 var gifContainer = document.querySelector("#gifs");
 // &limit=25&offset=0&rating=pg-13&lang=en
 function getGiphyApi(name) {
@@ -97,6 +98,7 @@ function getGiphyApi(name) {
                 gifEl.setAttribute('src', gif.images.fixed_height.url)
                 gifContainer.append(gifEl)
             })
+            container.classList.remove("hide");
         });
 }
 // function executes api call taking in a url
@@ -108,11 +110,20 @@ function fetchTraceAPI(url) {
             })
             .then((res) => {
                 console.log(res);
+                var obj = {};
+                
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;
                 anime = res.result[0].anilist.title.romaji;
                 console.log(anime);
+                // store searched anime name and url
+                obj["name"] = anime;
+                obj["url"] = url;
+                storedSearches.push(obj);
+                console.log(storedSearches);
                 pic.appendChild(uploaded_pic);
                 getGiphyApi(anime);
+                console.log(anime);
+                aniSearch(anime);
             })
 }
 
@@ -121,21 +132,45 @@ var pic = document.getElementById("theAnimePic");
 var Aniname = document.getElementById("theAnimeName");
 var uploaded_pic = document.createElement("img");
 
+// if want to do file need to incorporate this function somehow
 const fileInput = document.getElementById("fileInput");
-fileInput.addEventListener("change", (event) => {
-    // event occurs when the value of an element has been changed.
+// fileInput.addEventListener("change", (event) => {
+//     // event occurs when the value of an element has been changed.
 
-    const fileList = event.target.files;
-    // It's part of the File API, which is available in all modern browsers except IE9 and earlier. files is a FileList of the file(s) selected by the user in the input[type=file] element you're referencing via the id in your id variable.
-    // Each entry in the FileList is a File, which gives you the name of the file (without path information) and which can be used for accessing the files.
+//     const fileList = event.target.files;
+//     // It's part of the File API, which is available in all modern browsers except IE9 and earlier. files is a FileList of the file(s) selected by the user in the input[type=file] element you're referencing via the id in your id variable.
+//     // Each entry in the FileList is a File, which gives you the name of the file (without path information) and which can be used for accessing the files.
 
-    // loading text for display to show call is working
+//     // loading text for display to show call is working
+//     Aniname.innerHTML = "LOADING";
+//     console.log(fileList);
+
+//     // followed steps on api doc
+//     const formData = new FormData();
+//     formData.append("image", fileList[0]);
+
+//     //first fetch gets basic guess on the stored file image
+//     fetch("https://api.trace.moe/search", {
+//         method: "POST",
+//         body: formData,
+//     }).then(response => response.json())
+//     .then((data) => {
+//         console.log(data);
+//         // at this point, we have the data but to get any aditional information about the anime, we need a url
+//         // this first fetch allows us to grab a url to then run another fetch request. 
+//         let url = data.result[0].image;
+//         uploaded_pic.src = url;
+//         // second fetch gets extra data 
+//         fetchTraceAPI(url);
+//     })
+// })
+
+function imageData(image) {
     Aniname.innerHTML = "LOADING";
-    console.log(fileList);
 
     // followed steps on api doc
     const formData = new FormData();
-    formData.append("image", fileList[0]);
+    formData.append("image", image);
 
     //first fetch gets basic guess on the stored file image
     fetch("https://api.trace.moe/search", {
@@ -151,4 +186,56 @@ fileInput.addEventListener("change", (event) => {
         // second fetch gets extra data 
         fetchTraceAPI(url);
     })
-})
+}
+// custom drag and drop section
+function readURL(input) {
+    if (input.files && input.files[0]) {
+
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        $('.image-upload-wrap').hide();
+  
+        $('.file-upload-image').attr('src', e.target.result);
+        $('.file-upload-content').show();
+  
+        $('.image-title').html(input.files[0].name);
+      };
+  
+      reader.readAsDataURL(input.files[0]);
+      imageData(input.files[0]);
+    } else {
+      removeUpload();
+    }
+  }
+  
+  function removeUpload() {
+    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+    $('.file-upload-content').hide();
+    $('.image-upload-wrap').show();
+  }
+  $('.image-upload-wrap').bind('dragover', function () {
+          $('.image-upload-wrap').addClass('image-dropping');
+      });
+      $('.image-upload-wrap').bind('dragleave', function () {
+          $('.image-upload-wrap').removeClass('image-dropping');
+  });
+  
+
+  //Jikan API. This is called in the fetchTraceAPI
+  aniSearch()
+  function aniSearch() {
+
+    fetch('https://api.jikan.moe/v3/search/anime?q='+anime)
+  .then((response) => {
+    return response.json();
+  })
+  .then((myJson) => {
+    aniStats(myJson);
+  });
+};
+
+function aniStats(response) {
+    console.log(response)
+
+};

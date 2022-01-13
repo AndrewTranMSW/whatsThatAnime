@@ -23,20 +23,32 @@
         </div>
     </header>
 
-    <input type="file" id="fileInput" multiple/>
-    <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
+    <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
+    <div class="file-upload">
+    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
-    <div class="input-group">
-        <span class="input-group-label">Please choose a file</span>
-        <input class="input-group-field" type="text" name="image" id="imageLink"/>
-        <div class="input-group-button">
-            <button type="submit" id="submit-button" class="button">submit</button>
+    <div class="image-upload-wrap">
+        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+        <div class="drag-text">
+        <h3>Drag and drop a file or select add Image</h3>
         </div>
+    </div>
+
+    <div class="file-upload-content">
+        <img class="file-upload-image" src="#" alt="your image" />
+        <div class="image-title-wrap">
+        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+        </div>
+    </div>
+    </div>
+
+    <div id="previous-searches">
+        <ul id="list">
+        </ul>
     </div>
     
     <h1 id="theAnimeName"></h1>
     <div id="theAnimePic"></div>
-
     
     <div class="container hide">
         <!-- Div for the Anime facts as a list, the <span> tag nested in the <li> tag will populate the anime info -->
@@ -66,7 +78,7 @@
     
 
     
-
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>

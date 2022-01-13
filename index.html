@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="./develop/styles.css">
     <title>What's that Anime</title>
 </head>
+
 <body>
     <header>
         <div class="hero-section">
@@ -23,7 +24,14 @@
         </div>
     </header>
 
-    <!-- This will populate when the submit button is pressed. Will be a hidden element until the 'loading' is complete. To hide, add 'hide' to the parent div class of container -->
+    <input type="file" id="fileInput" multiple/>
+    <input type="text" name="image" id="imageLink"/>
+    <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
+    <button type="submit" id="submit-button">submit</button>
+    <h1 id="theAnimeName"></h1>
+    <div id="theAnimePic"></div>
+
+<!-- This will populate when the submit button is pressed. Will be a hidden element until the 'loading' is complete. To hide, add 'hide' to the parent div class of container -->
 
 <div class="container hide">
     <!-- Div for the Anime facts as a list, the <span> tag nested in the <li> tag will populate the anime info -->
@@ -43,17 +51,6 @@
     <!-- Gifs will populate here -->
     <div class="gif-container" id="gifs"></div>
 </div>
-
-
-  
-
-    <input type="file" id="fileInput" multiple/>
-    <input type="text" name="image" id="imageLink"/>
-    <!-- The multiple attribute is a boolean attribute. When present, it specifies that the user is allowed to enter more than one value in the <input> element. use multiple for files -->
-    <button type="submit" id="submit-button">submit</button>
-    <h1 id="theAnimeName"></h1>
-    <div id="theAnimePic"></div>
-
     
 
     <script src="js/vendor/jquery.js"></script>
@@ -63,6 +60,5 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
     <script src="./develop/script.js"></script>
-</body>
 </body>
 </html>

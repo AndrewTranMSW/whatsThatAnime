@@ -25,28 +25,39 @@
     </header>
 
     <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
-    <div class="file-upload">
-    <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-
-    <div class="image-upload-wrap">
-        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-        <div class="drag-text">
-        <h3>Drag and drop a file or select add Image</h3>
+    <div class="grid-x grid-margin-x">
+        <div class="cell small-4 large-offset-2">
+            <div class="file-upload">
+                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+            
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                    <div class="drag-text">
+                    <h3>Drag and drop a file or select add Image</h3>
+                    </div>
+                </div>
+            
+                <div class="file-upload-content">
+                    <img class="file-upload-image" src="#" alt="your image" />
+                    <div class="image-title-wrap">
+                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                    </div>
+                </div>
+                </div>
         </div>
-    </div>
-
-    <div class="file-upload-content">
-        <img class="file-upload-image" src="#" alt="your image" />
-        <div class="image-title-wrap">
-        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+        <div class="cell small-4">
+            <div class="card" style="width: 300px;">
+                <div class="card-divider">
+                  This is a header
+                </div>
+                <div class="card-section">
+                    <div id="previous-searches">
+                        <ul id="list"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-
-    <div id="previous-searches">
-        <ul id="list">
-        </ul>
-    </div>
+      </div>
     
     <h1 id="theAnimeName"></h1>
     <div id="theAnimePic"></div>

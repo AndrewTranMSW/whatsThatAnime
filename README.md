@@ -1,5 +1,5 @@
 # What's That Anime?
-# Providing Solutions to the Anime Unkown!
+# Providing Solutions to the Anime Unknown!
 ​
 
 ---
@@ -7,16 +7,17 @@
 
 ## Table of Contents
 ​
-- [Description](#Description)
-- [Deployed Link](#Deployed-Link)
-- [Technologies](#Technologies)
-- [Functionality](#Functionality)
-- [Authors](#Authors)
+- [Description](#description)
+- [Deployed Link](#deployed-Link)
+- [Screen Shot](#screen-shot)
+- [Technologies](#technologies)
+- [Functionality](#functionality)
+- [Authors](#authors)
 ​
 
 ---
 
-## Description:
+## Description
 ​
 Many times, an individual will come across an anime image or screenshot that catches their eye. If the individual is not familiar with that anime, they could end up spending hours on various websites, subreddits, comment sections and going down various other internet worm holes trying to figure out what anime that image is from.
 
@@ -28,10 +29,14 @@ What's That Anime? is a website designed for an end user to be able to cut out t
 ---
 
 ​
-# Deployed Link:
+## Deployed Link
  - [What's that Anime?](LINK TO DEPLOYED WEBSITE GOES HERE)
+
+
+ ---
 ​
 ​
+## Screen Shot
 ![What's That Anime?](./develop/landing-page-whats-that-anime.png)
 ​
 
@@ -43,6 +48,10 @@ Project is created with:
 ​
 - [Foundation](https://get.foundation/)
 - [JavaScript](https://www.javascript.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Trace Moe API](https://soruly.github.io/trace.moe-api/#/)
+- [Jikan API](https://jikan.moe/)
+- [Giphy API](https://developers.giphy.com/)
 
 ---
 ​

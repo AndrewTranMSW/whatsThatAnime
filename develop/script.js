@@ -5,6 +5,10 @@ var ratingInfoText = document.getElementById("rating-info-text");
 var airDateInfoText = document.getElementById("air-date-info-text");
 var animeInfoText = document.getElementById("anime-info-text");
 var viewMoreText = document.getElementById("view-more-text");
+var episodeNumberText = document.getElementById("episode-number-text");
+//AT--Added this to populate episode number on HTML
+// console.log(response.result[0].episode);
+// episodeInfoText.textContent = res.result[0].episode;
 var anime; 
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
@@ -206,6 +210,9 @@ function imageData(image) {
     .then((data) => {
         console.log("first api call")
         console.log(data);
+        if (data.error != "") {
+          return alert("Even we don't know that anime! Make sure an image file or URL was selected and try again!")
+        }
         // at this point, we have the data but to get any aditional information about the anime, we need a url
         // this first fetch allows us to grab a url to then run another fetch request. 
         let url = data.result[0].image;
@@ -278,6 +285,7 @@ function readURL(input) {
     animeListLink.textContent = "View more info on MyAnimeList";
     animeListLink.setAttribute("href",myJson.results[0].url);
     animeListLink.setAttribute("target","_blank");
+    viewMoreText.innerHTML = '';
     viewMoreText.append(animeListLink);
   });
 };

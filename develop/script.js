@@ -324,12 +324,15 @@ var aniBtns = document.querySelectorAll(".aniBtn");
 var aniImages = document.querySelectorAll(".imageTest");
 var animeTitle = document.querySelectorAll("#anime-title");
 var similarityText = document.querySelectorAll("#sim");
+var episodeNumber = document.querySelectorAll("#episode-number");
 
 function appendAnime(firstGuess) {
   console.log("image data");
   console.log(firstGuess);
   for(let i = 0; i < cells.length; i++) {
     animeTitle[i].textContent = firstGuess.result[i + 1].anilist.title.romaji;
+    episodeNumber[i].textContent = firstGuess.result[i + 1].episode;
+    episodeNumberText.textContent = firstGuess.result[0].episode;
     const percentage = firstGuess.result[i + 1].similarity;
     similarityText[i].textContent = Math.floor(percentage * 100);
     console.log(firstGuess["result"][i + 1].image);

@@ -113,7 +113,7 @@ function fetchTraceAPI(url) {
                 return response.json();
             })
             .then((res) => {
-                // console.log(res);
+                console.log(res);
                 var obj = {};
                 
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;

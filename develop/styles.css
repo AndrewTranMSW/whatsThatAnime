@@ -159,3 +159,21 @@
 /* body {
     background-image: linear-gradient(var(--lilac), var(--black));
 } */
+
+.card {
+  margin: 20px;
+  border-radius: 4px;
+}
+
+.card-divider {
+  justify-content: center;
+}
+
+.card-section {
+  min-height: 223px;
+}
+
+.button {
+  background-color: white;
+  color:black;
+}

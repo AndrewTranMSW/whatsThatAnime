@@ -119,10 +119,11 @@ function fetchTraceAPI(url) {
             .then((res) => {
                 console.log(res);
                 var obj = {};
-                
+                // console.log(res.result[0].anilist.title.romaji);
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;
                 anime = res.result[0].anilist.title.romaji;
-
+                appendAnime(res);
+                // console.log(anime);
                 pic.appendChild(uploaded_pic);
                 getGiphyApi(anime);
                 aniSearch(anime);
@@ -131,20 +132,20 @@ function fetchTraceAPI(url) {
             .then((anime) => {
               // this array will have every single anime ever u try to find, bad thinking but need for now
               
-              console.log(anime + " anime name");
-              console.log(typeof anime)
-              console.log(!storedSearches.includes(anime) + " if array contains text");
-              console.log(typeof storedSearches);
-              console.log(storedSearches);
+              // console.log(anime + " anime name");
+              // console.log(typeof anime)
+              // console.log(!storedSearches.includes(anime) + " if array contains text");
+              // console.log(typeof storedSearches);
+              // console.log(storedSearches);
 
               if(!storedSearches.includes(anime)){
                 storedSearches.unshift(anime);
                 var obj = {};
                 obj["name"] = anime;
                 obj["url"] = url;
-                console.log(obj);
+                // console.log(obj);
                 storedAnime.push(obj);
-                console.log(storedAnime);
+                // console.log(storedAnime);
                 // store searched anime name and url
                 // issue, anime name is not being transferred over
                 localStorage.setItem('Animes', JSON.stringify(storedAnime));
@@ -207,12 +208,17 @@ function imageData(image) {
         body: formData,
     }).then(response => response.json())
     .then((data) => {
+        console.log("first api call")
         console.log(data);
+        if (data.error != "") {
+          return alert("Even we don't know that anime! Make sure an image file or URL was selected and try again!")
+        }
         // at this point, we have the data but to get any aditional information about the anime, we need a url
         // this first fetch allows us to grab a url to then run another fetch request. 
         let url = data.result[0].image;
         uploaded_pic.src = url;
         // second fetch gets extra data 
+        cardOptions.classList.remove("hide");
         fetchTraceAPI(url);
     })
 }
@@ -285,7 +291,7 @@ function readURL(input) {
 };
 
 function aniStats(response) {
-    console.log(response)
+    // console.log(response)
 };
 
 var prevSearched = document.querySelector("#list");
@@ -310,3 +316,37 @@ prevSearched.addEventListener('click', function(event) {
 });
 
 storage();
+
+var cells = document.querySelectorAll(".options");
+var cardOptions = document.querySelector(".grid-container");
+var cardButton = document.querySelectorAll(".card-btn");
+var aniBtns = document.querySelectorAll(".aniBtn");
+var aniImages = document.querySelectorAll(".imageTest");
+var animeTitle = document.querySelectorAll("#anime-title");
+var similarityText = document.querySelectorAll("#sim");
+
+function appendAnime(firstGuess) {
+  console.log("image data");
+  console.log(firstGuess);
+  for(let i = 0; i < cells.length; i++) {
+    animeTitle[i].textContent = firstGuess.result[i + 1].anilist.title.romaji;
+    const percentage = firstGuess.result[i + 1].similarity;
+    similarityText[i].textContent = Math.floor(percentage * 100);
+    console.log(firstGuess["result"][i + 1].image);
+    cardButton[i].setAttribute("data-value", firstGuess["result"][i + 1].image )
+    aniImages[i].setAttribute("src", firstGuess["result"][i + 1].image);
+  }
+}
+
+cardOptions.addEventListener("click", (event) => {
+  if(event.target.matches('.card-btn')){
+    fetch(`https://api.trace.moe/search?anilistInfo&url=${encodeURIComponent(`${event.target.getAttribute("data-value")}`)}`)
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        // appendAnime(data);
+        fetchTraceAPI(event.target.getAttribute("data-value"));
+    })
+    
+  }
+});

@@ -1,3 +1,6 @@
+$(document).foundation();
+
+
 //anime-info div that contains info about the anime searched
 var synopsisText = document.getElementById("synopsis-text");
 var episodeInfoText = document.getElementById("episode-info-text");

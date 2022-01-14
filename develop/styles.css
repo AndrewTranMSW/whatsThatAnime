@@ -209,6 +209,11 @@ body {
   min-height: 40vh;
 }
 
+.container-anime-info {
+  padding-left: 20px;
+  background-color: #e7e6e3;
+}
+
 /* FOOTER SECTION BELOW */
 .site-footer {
   background-color: var(--black);
@@ -216,6 +221,7 @@ body {
   font-size:15px;
   line-height:24px;
   color: var(--ivory);
+  padding-left: 20px;
 }
 
 .site-footer hr {

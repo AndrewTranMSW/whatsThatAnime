@@ -6,6 +6,9 @@ var airDateInfoText = document.getElementById("air-date-info-text");
 var animeInfoText = document.getElementById("anime-info-text");
 var viewMoreText = document.getElementById("view-more-text");
 var episodeNumberText = document.getElementById("episode-number-text");
+//AT--Added this to populate episode number on HTML
+// console.log(response.result[0].episode);
+// episodeInfoText.textContent = res.result[0].episode;
 var anime; 
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';

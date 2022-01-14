@@ -1,11 +1,13 @@
-
-// var a = "hello";
-// console.log(a);
-// This Works!
+//anime-info div that contains info about the anime searched
+var synopsisText = document.getElementById("synopsis-text");
+var episodeInfoText = document.getElementById("episode-info-text");
+var ratingInfoText = document.getElementById("rating-info-text");
+var airDateInfoText = document.getElementById("air-date-info-text");
+var animeInfoText = document.getElementById("anime-info-text");
+var viewMoreText = document.getElementById("view-more-text");
+var anime; 
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
-
-var anime; 
 
 function getApi(requestURL) {
     fetch(requestURL)
@@ -231,11 +233,29 @@ function readURL(input) {
   })
   .then((myJson) => {
     aniStats(myJson);
+    //confirms the data is pulled from Jikan API
     console.log(myJson.results[0].synopsis);
+    console.log(myJson.results[0].start_date);
+    console.log(myJson.results[0].rated);
+    console.log(myJson.results[0].synopsis);
+    console.log(myJson.results[0].title);
+    console.log(myJson.results[0].url);
+    //variable to create a link element for viewing more info on myanimelist
+    var animeListLink = document.createElement("a")
+
+    animeInfoText.textContent = myJson.results[0].title;
+    episodeInfoText.textContent = myJson.results[0].episodes;
+    ratingInfoText.textContent = myJson.results[0].rated;
+    airDateInfoText.textContent = myJson.results[0].start_date;
+    synopsisText.textContent = myJson.results[0].synopsis;
+    //new link created and appended to the view-more-text ID.
+    animeListLink.textContent = "View more info on MyAnimeList";
+    animeListLink.setAttribute("href",myJson.results[0].url);
+    animeListLink.setAttribute("target","_blank");
+    viewMoreText.append(animeListLink);
   });
 };
 
 function aniStats(response) {
     console.log(response)
-    // console.log(response.results[0].synopsis)
 };

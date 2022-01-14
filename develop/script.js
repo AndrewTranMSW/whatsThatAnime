@@ -92,7 +92,7 @@ function getApi(requestURL) {
 var storedSearches = [];
 var objValues = [];
 var storedAnime = [];
-var container = document.querySelector(".container");
+var container = document.querySelector(".container-anime-info");
 var gifContainer = document.querySelector("#gifs");
 // &limit=25&offset=0&rating=pg-13&lang=en
 function getGiphyApi(name) {

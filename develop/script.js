@@ -113,6 +113,7 @@ function fetchTraceAPI(url) {
                 return response.json();
             })
             .then((res) => {
+                appendAnime(res);
                 // console.log(res);
                 var obj = {};
                 
@@ -210,7 +211,6 @@ function imageData(image) {
         uploaded_pic.src = url;
         // second fetch gets extra data 
         cardOptions.classList.remove("hide");
-        appendAnime(data);
         fetchTraceAPI(url);
     })
 }
@@ -313,13 +313,14 @@ var cardOptions = document.querySelector(".grid-container");
 var cardButton = document.querySelectorAll(".card-btn");
 var aniBtns = document.querySelectorAll(".aniBtn");
 var aniImages = document.querySelectorAll(".imageTest");
-
+var animeTitle = document.querySelectorAll("#anime-title");
+var similarityText = document.querySelectorAll("similarity%");
 function appendAnime(firstGuess) {
   console.log("image data");
+  console.log(firstGuess);
   for(let i = 0; i < cells.length; i++) {
-    // var aniBtn = document.createElement("button");
-    
-    // aniImage.setAttribute("src", firstGuess["result"][i + 1].image);
+    animeTitle[i].textContent = firstGuess.result[i + 1].anilist.title.romaji;
+    similarityText[i].textContent = Math.floor((firstGuess.result[i + 1].similarity) * 100);
     console.log(firstGuess["result"][i + 1].image);
     cardButton[i].setAttribute("data-value", firstGuess["result"][i + 1].image )
     aniImages[i].setAttribute("src", firstGuess["result"][i + 1].image);

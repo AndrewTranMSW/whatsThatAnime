@@ -46,21 +46,26 @@
 }
 
 .file-upload {
-    background-color: #ffffff;
+    font-family: 'Kalam', cursive;
+    background-color: var(--ivory);
     width: 600px;
     margin: 0 auto;
     padding: 20px;
+    border-radius: 4px;
+    /* border: 3px solid var(--lilac); */
+    box-shadow: 2px 2px 5px var(--lilac);
   }
   
   .file-upload-btn {
+    font-family: 'Kalam', cursive;
     width: 100%;
     margin: 0;
-    color: #fff;
-    background: #1FB264;
+    color: var(--ivory);
+    background: var(--green);
     border: none;
     padding: 10px;
     border-radius: 4px;
-    border-bottom: 4px solid #15824B;
+    border-bottom: 4px solid var(--teal);
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
@@ -68,8 +73,9 @@
   }
   
   .file-upload-btn:hover {
-    background: #1AA059;
-    color: #ffffff;
+    font-family: 'Kalam', cursive;
+    background: var(--lilac);
+    color: var(--ivory);
     transition: all .2s ease;
     cursor: pointer;
   }
@@ -97,29 +103,31 @@
   
   .image-upload-wrap {
     margin-top: 20px;
-    border: 4px dashed #1FB264;
+    border: 4px dashed var(--teal);
     position: relative;
   }
   
   .image-dropping,
   .image-upload-wrap:hover {
-    background-color: #1FB264;
-    border: 4px dashed #ffffff;
+    background-color: var(--lilac);
+    border: 4px dashed var(--green);
   }
   
   .image-title-wrap {
     padding: 0 15px 15px 15px;
-    color: #222;
+    color: var(--black);
   }
   
   .drag-text {
+    font-family: 'Kalam', cursive;
     text-align: center;
   }
   
   .drag-text h3 {
-    font-weight: 100;
+    font-family: 'Kalam', cursive;
+    font-weight: bolder;
     text-transform: uppercase;
-    color: #15824B;
+    color: var(--green);
     padding: 60px 0;
   }
   
@@ -131,14 +139,15 @@
   }
   
   .remove-image {
+    font-family: 'Kalam', cursive;
     width: 200px;
     margin: 0;
-    color: #fff;
-    background: #cd4535;
+    color: var(--ivory);
+    background: var(--lilac);
     border: none;
     padding: 10px;
     border-radius: 4px;
-    border-bottom: 4px solid #b02818;
+    border-bottom: 4px solid var(--teal);
     transition: all .2s ease;
     outline: none;
     text-transform: uppercase;
@@ -146,8 +155,9 @@
   }
   
   .remove-image:hover {
-    background: #c13b2a;
-    color: #ffffff;
+    font-family: 'Kalam', cursive;
+    background: var(--lilac);
+    color: var(--ivory);
     transition: all .2s ease;
     cursor: pointer;
   }
@@ -156,24 +166,43 @@
     border: 0;
     transition: all .2s ease;
   }
-/* body {
+
+body {
     background-image: linear-gradient(var(--lilac), var(--black));
-} */
+}
 
 .card {
   margin: 20px;
   border-radius: 4px;
+  /* border: 3px solid var(--lilac); */
+  box-shadow: 2px 2px 5px var(--lilac);
 }
 
 .card-divider {
+  font-family: 'Kalam', cursive;
+  font-size: x-large;
+  color: var(--ivory);
   justify-content: center;
+  background-color: var(--green);
+  border-bottom: 4px solid var(--teal);
 }
 
 .card-section {
   min-height: 223px;
+  background-color: var(--ivory);
 }
 
 .button {
-  background-color: white;
-  color:black;
+  font-family: 'Mulish', sans-serif;
+  background-color: var(--teal);
+  color:var(--ivory);
+}
+
+.button:hover {
+  font-family: 'Mulish', sans-serif;
+  background-color: var(--lilac);
+}
+
+.grid-margin-x {
+  min-height: 100vh;
 }

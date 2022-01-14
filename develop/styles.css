@@ -188,8 +188,9 @@ body {
 }
 
 .card-section {
-  min-height: 223px;
+  height: 248px;
   background-color: var(--ivory);
+  overflow-y: scroll;
 }
 
 .button {

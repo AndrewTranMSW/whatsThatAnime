@@ -81,6 +81,7 @@ function getApi(requestURL) {
 //     fetchTraceAPI(url);
 // })
 var storedSearches = [];
+var objValues = [];
 var container = document.querySelector(".container");
 var gifContainer = document.querySelector("#gifs");
 // &limit=25&offset=0&rating=pg-13&lang=en
@@ -124,7 +125,39 @@ function fetchTraceAPI(url) {
                 getGiphyApi(anime);
                 console.log(anime);
                 aniSearch(anime);
+                return anime;
             })
+            .then((anime) => {
+              if (storedSearches.length === 0) {
+                  // works
+                  console.log("stop1");
+                  var obj = {};
+                  obj["name"] = anime;
+                  obj["url"] = url;
+                  storedSearches.push(obj);
+                  localStorage.setItem('Animes', JSON.stringify(storedSearches));
+                  storage();
+              } else {
+                  // not working
+                  console.log("array has 1 item");
+                  
+                  objValues = Object.values(storedSearches);
+                  console.log(objValues);
+
+                  if(!objValues.includes(anime)){
+                      console.log("work if the anime is new");
+                      // store searched anime name and url
+                      // issue, anime name is not being transferred over
+                      var obj = {};
+                      obj["name"] = anime;
+                      obj["url"] = url;
+                      console.log(obj);
+                      storedSearches.push(obj);
+                      localStorage.setItem('Animes', JSON.stringify(storedSearches));
+                      storage();
+                  } 
+              }
+  });
 }
 
 // fetch request for downloaded file
@@ -239,3 +272,25 @@ function aniStats(response) {
     console.log(response)
     // console.log(response.results[0].synopsis)
 };
+
+var prevSearched = document.querySelector("#list");
+function storage() {
+    prevSearched.innerHTML = '';
+    storedSearches = JSON.parse(localStorage.getItem('Animes')) || [];
+    storedSearches.map( item => {
+        let li = document.createElement('button')
+        li.setAttribute('class', 'previous button');
+        li.setAttribute("data-value", item["url"]);
+        li.textContent = item["name"];
+        prevSearched.append(li);
+        objValues = Object.values(storedSearches);
+    })
+}
+
+prevSearched.addEventListener('click', function(event) {
+    if(event.target.matches('.previous')){
+        fetchTraceAPI(event.target.getAttribute("data-value"));
+    }
+});
+
+storage();

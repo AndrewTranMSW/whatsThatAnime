@@ -159,3 +159,11 @@
 /* body {
     background-image: linear-gradient(var(--lilac), var(--black));
 } */
+
+.card {
+  margin: 20px;
+}
+
+.card-divider {
+  justify-content: center;
+}

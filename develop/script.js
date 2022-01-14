@@ -5,6 +5,7 @@ var ratingInfoText = document.getElementById("rating-info-text");
 var airDateInfoText = document.getElementById("air-date-info-text");
 var animeInfoText = document.getElementById("anime-info-text");
 var viewMoreText = document.getElementById("view-more-text");
+var episodeNumberText = document.getElementById("episode-number-text");
 var anime; 
 // var requestURL = 'https://api.trace.moe';
 // var requestURL = 'https://api.jikan.moe/v3';
@@ -275,6 +276,7 @@ function readURL(input) {
     animeListLink.textContent = "View more info on MyAnimeList";
     animeListLink.setAttribute("href",myJson.results[0].url);
     animeListLink.setAttribute("target","_blank");
+    viewMoreText.innerHTML = '';
     viewMoreText.append(animeListLink);
   });
 };
@@ -305,4 +307,3 @@ prevSearched.addEventListener('click', function(event) {
 });
 
 storage();
-

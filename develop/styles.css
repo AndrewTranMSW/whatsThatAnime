@@ -21,11 +21,12 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;        
+    -ms-flex-pack: center;
+    justify-content: center;  
+    width: 100%;      
   }
   
   .hero-section .hero-section-text {
@@ -169,6 +170,7 @@
 
 body {
     background-image: linear-gradient(var(--lilac), var(--black));
+    width: 100%;
 }
 
 .card {

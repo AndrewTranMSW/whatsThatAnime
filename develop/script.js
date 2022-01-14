@@ -81,6 +81,8 @@ function getApi(requestURL) {
 //     fetchTraceAPI(url);
 // })
 var storedSearches = [];
+var objValues = [];
+var storedAnime = [];
 var container = document.querySelector(".container");
 var gifContainer = document.querySelector("#gifs");
 // &limit=25&offset=0&rating=pg-13&lang=en
@@ -109,22 +111,43 @@ function fetchTraceAPI(url) {
                 return response.json();
             })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 var obj = {};
                 
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;
                 anime = res.result[0].anilist.title.romaji;
-                console.log(anime);
-                // store searched anime name and url
-                obj["name"] = anime;
-                obj["url"] = url;
-                storedSearches.push(obj);
-                console.log(storedSearches);
+
                 pic.appendChild(uploaded_pic);
                 getGiphyApi(anime);
-                console.log(anime);
                 aniSearch(anime);
+                return anime;
             })
+            .then((anime) => {
+              // this array will have every single anime ever u try to find, bad thinking but need for now
+              
+              console.log(anime + " anime name");
+              console.log(typeof anime)
+              console.log(!storedSearches.includes(anime) + " if array contains text");
+              console.log(typeof storedSearches);
+              console.log(storedSearches);
+
+              if(!storedSearches.includes(anime)){
+                storedSearches.unshift(anime);
+                var obj = {};
+                obj["name"] = anime;
+                obj["url"] = url;
+                console.log(obj);
+                storedAnime.push(obj);
+                console.log(storedAnime);
+                // store searched anime name and url
+                // issue, anime name is not being transferred over
+                localStorage.setItem('Animes', JSON.stringify(storedAnime));
+                localStorage.setItem('Searches', JSON.stringify(storedSearches));
+                storage();  
+              } 
+
+              
+            });
 }
 
 // fetch request for downloaded file
@@ -237,5 +260,29 @@ function readURL(input) {
 
 function aniStats(response) {
     console.log(response)
-    // console.log(response.results[0].synopsis)
+    console.log(response.results[0].synopsis)
 };
+
+var prevSearched = document.querySelector("#list");
+function storage() {
+    prevSearched.innerHTML = '';
+    storedAnime = JSON.parse(localStorage.getItem('Animes')) || [];
+    storedSearches = JSON.parse(localStorage.getItem('Searches')) || [];
+    storedAnime.map( item => {
+        let li = document.createElement('button')
+        li.setAttribute('class', 'previous button');
+        li.setAttribute("data-value", item["url"]);
+        li.textContent = item["name"];
+        prevSearched.append(li);
+        // objValues = Object.values(storedSearches);
+    }) 
+}
+
+prevSearched.addEventListener('click', function(event) {
+    if(event.target.matches('.previous')){
+        fetchTraceAPI(event.target.getAttribute("data-value"));
+    }
+});
+
+storage();
+

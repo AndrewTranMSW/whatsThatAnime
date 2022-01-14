@@ -209,6 +209,8 @@ function imageData(image) {
         let url = data.result[0].image;
         uploaded_pic.src = url;
         // second fetch gets extra data 
+        cardOptions.classList.remove("hide");
+        appendAnime(data);
         fetchTraceAPI(url);
     })
 }
@@ -306,3 +308,37 @@ prevSearched.addEventListener('click', function(event) {
 
 storage();
 
+var cells = document.querySelectorAll(".options");
+var cardOptions = document.querySelector(".grid-container");
+var cardButton = document.querySelectorAll(".card-btn");
+var aniBtns = document.querySelectorAll(".aniBtn");
+var aniImages = document.querySelectorAll(".imageTest");
+
+function appendAnime(firstGuess) {
+  console.log("image data");
+  for(let i = 0; i < cells.length; i++) {
+    // var aniBtn = document.createElement("button");
+    
+    // aniImage.setAttribute("src", firstGuess["result"][i + 1].image);
+    console.log(firstGuess["result"][i + 1].image);
+    cardButton[i].setAttribute("data-value", firstGuess["result"][i + 1].image )
+    aniImages[i].setAttribute("src", firstGuess["result"][i + 1].image);
+  }
+}
+
+// appendAnime();
+
+
+console.log(cardButton);
+cardOptions.addEventListener("click", (event) => {
+  if(event.target.matches('.card-btn')){
+    fetch(`https://api.trace.moe/search?anilistInfo&url=${encodeURIComponent(`${event.target.getAttribute("data-value")}`)}`)
+      .then(response => response.json())
+      .then((data) => {
+        console.log(data);
+        appendAnime(data);
+        fetchTraceAPI(event.target.getAttribute("data-value"));
+    })
+    
+  }
+});

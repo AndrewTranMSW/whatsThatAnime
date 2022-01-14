@@ -57,8 +57,7 @@ Project is created with:
 ​
 ## Functionality
 ​
-This animation demonstrates the functionality of What's That Anime?:
-![Image](./develop/functionality-page-whats-that-anime.png)
+![Image](./develop/functionality-whats-that-anime.gif)
 ​
 
 ---

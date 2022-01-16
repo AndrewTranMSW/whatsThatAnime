@@ -315,6 +315,7 @@ function storage() {
 prevSearched.addEventListener('click', function(event) {
     if(event.target.matches('.previous')){
         loadingDots.classList.remove("hide");
+        uploaded_pic.setAttribute("src", event.target.getAttribute("data-value"));
         fetchTraceAPI(event.target.getAttribute("data-value"));
     }
 });
@@ -347,6 +348,7 @@ function appendAnime(firstGuess) {
 
 cardOptions.addEventListener("click", (event) => {
   if(event.target.matches('.card-btn')){
+    uploaded_pic.setAttribute("src", event.target.getAttribute("data-value"));
     fetch(`https://api.trace.moe/search?anilistInfo&url=${encodeURIComponent(`${event.target.getAttribute("data-value")}`)}`)
       .then(response => response.json())
       .then((data) => {

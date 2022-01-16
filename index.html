@@ -24,30 +24,11 @@
     <input type="text" placeholder="place a url of your image" class="url-input" onchange="urlInput();"/>
     <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
     <div class="grid-x">
-        <div class="cell small-12 medium-4">
-            <div class="file-upload">
-                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-            
-                <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                    <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
-                    </div>
-                </div>
-            
-                <div class="file-upload-content">
-                    <img class="file-upload-image" src="#" alt="your image" />
-                    <div class="image-title-wrap">
-                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                    </div>
-                </div>
-            </div>    
-        </div>
 
-        <div class="cell small-12 medium-4" id="prev-searches">
+        <div class="cell small-12 medium-6" id="prev-searches">
             <div class="card " id="search-card">
                 <div class="card-divider">
-                  <p>Previous Searches</p> 
+                  <p id="underline">Previous Searches</p> 
                 </div>
                 <div class="card-section" id="prev">
                     <div id="previous-searches">
@@ -57,8 +38,24 @@
             </div>
         </div>
 
-        <div class="cell small-12 medium-4" id="icon-container">
-          <img id="icon" src="./develop/ziseaozulrflzmyhg2puhiwbretfb2oh_hq.jpg" alt="thumbs up character">
+        <div class="cell small-12 medium-6">
+          <div class="file-upload">
+              <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )"><span id="underline-button">Add Image</span></button>
+          
+              <div class="image-upload-wrap">
+                  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                  <div class="drag-text">
+                  <h3>Drag and drop a file or select add Image</h3>
+                  </div>
+              </div>
+          
+              <div class="file-upload-content">
+                  <img class="file-upload-image" src="#" alt="your image" />
+                  <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                  </div>
+              </div>
+          </div>    
         </div>
     </div>
 

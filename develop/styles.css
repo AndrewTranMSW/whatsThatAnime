@@ -526,7 +526,7 @@ body {
   margin-right: 20px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 425px) {
   #title {
     font-size: 30px;
     text-align: center;
@@ -556,5 +556,9 @@ body {
 
   .url-input {
     width: 94%;
+  }
+
+  .cell {
+    margin-bottom: 10px;
   }
 }

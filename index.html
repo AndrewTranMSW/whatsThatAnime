@@ -21,13 +21,10 @@
             </div>
         </div>
     </header>
-
-<br>
-<br>
-
+    <input type="text" placeholder="place a url of your image" class="url-input" onchange="urlInput();"/>
     <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
-    <div class="grid-x grid-margin-x">
-        <div class="cell small-4 large-offset-2">
+    <div class="grid-x">
+        <div class="cell small-12 medium-4">
             <div class="file-upload">
                 <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
             
@@ -47,54 +44,69 @@
             </div>    
         </div>
 
-        <div class="cell small-4">
-            <div class="card" style="width: 300px;">
+        <div class="cell small-12 medium-4" id="prev-searches">
+            <div class="card " id="search-card">
                 <div class="card-divider">
                   <p>Previous Searches</p> 
                 </div>
-                <div class="card-section">
+                <div class="card-section" id="prev">
                     <div id="previous-searches">
                         <ul id="list"></ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="cell small-12 medium-4" id="icon-container">
+          <img id="icon" src="./develop/ziseaozulrflzmyhg2puhiwbretfb2oh_hq.jpg" alt="thumbs up character">
+        </div>
+    </div>
+
+    <div class="grid-x loading hide">
+      <div class="loader">
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+      </div>
     </div>
     
     <div class="grid-container hide">
     <div class="grid-x grid-margin-x small-up-2 medium-up-3">
         <div class="cell options">
-        <div class="card">
-            <img class="imageTest" src="">
-            <div class="card-section">
-            <h4 id="anime-title">This is a row of cards.</h4>
-            <p>Episode: <span id="episode-number"></span></p>
-            <p>Similarty: <span id="sim"></span>%</p>
-            </div>
-            <button class="button card-btn">Choose</button>
-        </div>
-        </div>
-        <div class="cell options">
-        <div class="card">
-            <img class="imageTest" src="">
-            <div class="card-section">
-            <h4 id="anime-title">This is a card.</h4>
-            <p>Episode: <span id="episode-number"></span></p>
-            <p>Similarty: <span id="sim"></span>%</p>
-            </div>
-            <button class="button card-btn">Choose</button>
-        </div>
+          <div class="card">
+              <img class="imageTest" src="">
+              <div class="card-section">
+              <h4 id="anime-title">This is a row of cards.</h4>
+              <p>Episode: <span id="episode-number"></span></p>
+              <p>Similarty: <span id="sim"></span>%</p>
+              </div>
+              <button class="button card-btn">Choose</button>
+          </div>
         </div>
         <div class="cell options">
-        <div class="card">
-            <img class="imageTest" src="">
-            <div class="card-section">
-            <h4 id="anime-title">This is a card.</h4>
-            <p>Episode: <span id="episode-number"></span></p>
-            <p>Similarty: <span id="sim"></span>%</p>
-            </div>
-            <button class="button card-btn">Choose</button>
+          <div class="card">
+              <img class="imageTest" src="">
+              <div class="card-section">
+              <h4 id="anime-title">This is a card.</h4>
+              <p>Episode: <span id="episode-number"></span></p>
+              <p>Similarty: <span id="sim"></span>%</p>
+              </div>
+              <button class="button card-btn">Choose</button>
+          </div>
         </div>
+        <div class="cell options">
+          <div class="card">
+              <img class="imageTest" src="">
+              <div class="card-section">
+              <h4 id="anime-title">This is a card.</h4>
+              <p>Episode: <span id="episode-number"></span></p>
+              <p>Similarty: <span id="sim"></span>%</p>
+              </div>
+              <button class="button card-btn">Choose</button>
+          </div>
         </div>
     </div>
     </div>

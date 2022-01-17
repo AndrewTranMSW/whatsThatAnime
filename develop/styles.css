@@ -1,9 +1,12 @@
+/* universal style reset */
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     
 }
+
+/* variables for page colors */
  :root {
     --lilac: #3B2244;
     --teal: #105160;
@@ -12,6 +15,17 @@
     --black: #000000;
  }
 
+html { 
+  background-color: #000; 
+}
+
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+ /* header background and styling */
 .hero-section {
     background-image: url("./newbackground.png");
     background-size: cover;
@@ -21,17 +35,14 @@
     display: -ms-flexbox;
     display: flex;
     -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;        
-  }
-  
-  .hero-section .hero-section-text {
-    font-family: 'Permanent Marker', cursive;
-  }
+    -ms-flex-pack: center;
+    justify-content: center;        
+}
 
+/* main page title */
 #title {
     font-family: 'Permanent Marker', cursive;
     font-size: 5em;
@@ -39,142 +50,146 @@
     text-shadow: 3px 3px 3px var(--lilac);
 }
 
+/* header sub text styling */
 #subtitle {
     font-family: 'Kalam', cursive;
     font-size: 2em;
     text-shadow: 1px 1px 1px var(--lilac);
 }
 
+/* styling for the image drag and drop area */
 .file-upload {
-    font-family: 'Kalam', cursive;
-    background-color: var(--ivory);
-    width: 70%;
-    margin: 15px auto 15px 15px;
-    padding: 20px;
-    border-radius: 4px;
-    border: 1px solid var(--lilac);
-    box-shadow: 2px 2px 5px var(--lilac);
-    height: 90%;
-  }
+  font-family: 'Kalam', cursive;
+  background-color: var(--ivory);
+  width: 70%;
+  margin: 15px 15px 15px auto;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--lilac);
+  box-shadow: 2px 2px 5px var(--lilac);
+  height: 90%;
+}
   
-  .file-upload-btn {
-    font-family: 'Kalam', cursive;
-    width: 100%;
-    margin: 0;
-    color: var(--ivory);
-    background: var(--green);
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    border-bottom: 4px solid var(--teal);
-    transition: all .2s ease;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
+.file-upload-btn {
+  font-family: 'Kalam', cursive;
+  width: 100%;
+  margin: 0;
+  color: var(--ivory);
+  background: var(--green);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid var(--teal);
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
   
-  .file-upload-btn:hover {
-    font-family: 'Kalam', cursive;
-    background: var(--lilac);
-    color: var(--ivory);
-    transition: all .2s ease;
-    cursor: pointer;
-  }
-  
-  .file-upload-btn:active {
-    border: 0;
-    transition: all .2s ease;
-  }
-  
-  .file-upload-content {
-    display: none;
-    text-align: center;
-  }
-  
-  .file-upload-input {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    outline: none;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  .image-upload-wrap {
-    margin-top: 20px;
-    border: 4px dashed var(--teal);
-    position: relative;
-  }
-  
-  .image-dropping,
-  .image-upload-wrap:hover {
-    background-color: var(--lilac);
-    border: 4px dashed var(--green);
-  }
-  
-  .image-title-wrap {
-    padding: 0 15px 15px 15px;
-    color: var(--black);
-  }
-  
-  .drag-text {
-    font-family: 'Kalam', cursive;
-    text-align: center;
-  }
-  
-  .drag-text h3 {
-    font-family: 'Kalam', cursive;
-    font-weight: bolder;
-    text-transform: uppercase;
-    color: var(--green);
-    padding: 60px 0;
-  }
-  
-  .file-upload-image {
-    max-height: 200px;
-    max-width: 200px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .remove-image {
-    font-family: 'Kalam', cursive;
-    width: 200px;
-    margin: 0;
-    color: var(--ivory);
-    background: var(--lilac);
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    border-bottom: 4px solid var(--teal);
-    transition: all .2s ease;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-  
-  .remove-image:hover {
-    font-family: 'Kalam', cursive;
-    background: var(--lilac);
-    color: var(--ivory);
-    transition: all .2s ease;
-    cursor: pointer;
-  }
-  
-  .remove-image:active {
-    border: 0;
-    transition: all .2s ease;
-  }
+.file-upload-btn:hover {
+  font-family: 'Kalam', cursive;
+  background: var(--lilac);
+  color: var(--ivory);
+  transition: all .2s ease;
+  cursor: pointer;
+}
 
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 4px dashed var(--teal);
+  position: relative;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: var(--lilac);
+  border: 4px dashed var(--green);
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: var(--black);
+}
+
+.drag-text {
+  font-family: 'Kalam', cursive;
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-family: 'Kalam', cursive;
+  font-weight: bolder;
+  text-transform: uppercase;
+  color: var(--green);
+  padding: 60px 0;
+}
+
+.file-upload-image {
+  max-height: 200px;
+  max-width: 200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.remove-image {
+  font-family: 'Kalam', cursive;
+  width: 200px;
+  margin: 0;
+  color: var(--ivory);
+  background: var(--lilac);
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid var(--teal);
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  font-family: 'Kalam', cursive;
+  background: var(--lilac);
+  color: var(--ivory);
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+/* body styling */
 body {
     background-image: linear-gradient(var(--lilac), var(--black));
     margin: 10px;
 }
 
+/* styling for three anime option cards */
 .card {
-  margin: 15px 15px 15px auto;
+  margin: 15px auto 15px 15px;
   border-radius: 4px;
   border: 1px solid var(--lilac);
   box-shadow: 2px 2px 5px var(--lilac);
@@ -189,17 +204,20 @@ body {
   border-bottom: 4px solid var(--teal);
 }
 
+/* styling for the list of past searches. Allows scroll function */
 #prev {
   height: 248px;
   background-color: var(--ivory);
   overflow-y: scroll;
 }
 
+/* text section of a card */
 .card-section {
   height: 170px;
   background-color: var(--ivory);
 }
 
+/* styling for anime card options, not previous searches */
 .oops-options {
   font-family: 'Mulish', sans-serif;
   max-height: 112px;
@@ -225,20 +243,26 @@ h4 {
   background-color:var(--lilac);    
 }
 
+/* adjust styling of foundation grid */
 .grid-margin-x {
   max-width: 99vw;
   min-height: 40vh;
 }
 
+/* styling for the area in which anime info is populated */
 .container-anime-info {
+  margin: 10px;
   padding-left: 20px;
+  padding-right: 20px;
   background-color: var(--ivory);
   border: 1px solid var(--lilac);
   box-shadow: 2px 2px 5px var(--lilac);
   font-family: 'Mulish', sans-serif;
   color: var(--black);
+  border-radius: 4px 4px 0px 0px;
 }
 
+/* styling for section where gifs are populated */
 .gif-container {
   justify-content: center;
   display: flex;
@@ -246,8 +270,23 @@ h4 {
   justify-content: space-evenly;
 }
 
-/* FOOTER SECTION BELOW */
+/* styling for image in anime card options */
+.imageTest {
+  height: 200px;
+}
 
+/* button styling for each previous searched anime */
+.previous {
+  width: 100%;
+}
+
+/* styling for list element in previous search */
+#list {
+  list-style:none;
+  margin-right: 20px;
+}
+
+/* FOOTER SECTION BELOW */
 .site-footer {
   font-family: 'Kalam', cursive;
   background-color: var(--black);
@@ -315,20 +354,6 @@ h4 {
   display:inline-block
 }
 
-.site-footer .social-icons {
-  text-align:right
-}
-
-.site-footer .social-icons a {
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
-}
-
 .copyright-text {
   font-family: 'Kalam', cursive;
   margin:0;
@@ -350,94 +375,31 @@ h4 {
   .site-footer .copyright-text,.site-footer .social-icons
   {
     text-align:center
-  }}
-
-.social-icons {
-  padding-left:0;
-  margin-bottom:0;
-  list-style:none
+  }
 }
 
-.social-icons li {
-  display:inline-block;
-  margin-bottom:4px
-}
-
-.social-icons li.title {
-  margin-right:15px;
-  text-transform:uppercase;
-  color:#96a2b2;
-  font-weight:700;
-  font-size:13px
-}
-
-.social-icons a {
-  background-color:var(--ivory);
-  color: var(--green);
-  font-size:16px;
-  display:inline-block;
-  line-height:44px;
-  width:44px;
-  height:44px;
-  text-align:center;
-  margin-right:8px;
-  border-radius:100%;
-  -webkit-transition:all .2s linear;
-  -o-transition:all .2s linear;
-  transition:all .2s linear
-}
-
-.social-icons a:active,.social-icons a:focus,.social-icons a:hover {
-  color:#fff;
-  background-color:#29aafe
-}
-
-.social-icons.size-sm a {
-  line-height:34px;
-  height:34px;
-  width:34px;
-  font-size:14px
-}
-
-.social-icons a.facebook:hover {
-  background-color:#3b5998
-}
-
-.social-icons a.twitter:hover {
-  background-color:#00aced
-}
-
-.social-icons a.linkedin:hover {
-  background-color:#007bb6
-}
-
-.social-icons a.dribbble:hover {
-  background-color:#ea4c89
-}
-
-html { background-color: #000; } 
-body {
-    min-height: 100vh;
-    max-width: 100vw;
-    margin: 0 auto;
-}
-
+/* previous search card overall styling */
 #search-card {
   width: 70%;
 }
 
+/* sizing for the main grid contents for previous searches and image drop */
 .cell {
   height: fit-content
 }
 
+/* styling of url input element on top of page */
 .url-input {
   z-index: 100;
   background: transparent;
   margin: 15px auto;
   width: 71%;
   border: 2px dashed var(--ivory);
+  font-family: 'Mulish', sans-serif;
+  border-radius: 4px;
 }
 
+/* placeholder styling inside of input element */
 ::placeholder {
   text-align: center;
   font-family: 'Kalam', cursive;
@@ -445,20 +407,24 @@ body {
   font-size: 20px;
 }
 
+/* adds underline for the previous searches*/
 #underline{
   text-decoration: underline;
 }
 
+/* adds underline styling to the add image button */
 #underline-button {
   text-decoration: underline;
 }
 
+/* styling of loading dots */
 .loader{
   margin: 20px auto;
   display: flex;
   align-items: center;
     
 }
+
 /* Creating the dots */
 #dot{
   height: 25px;
@@ -468,7 +434,8 @@ body {
   background-color: var(--ivory);
   animation: loading 1s linear infinite;
 }
-/* Creating the loading animation*/
+
+/* creates the loading dot movement animation*/
 @keyframes loading {
   0%{
    transform: translateX(0);
@@ -484,6 +451,8 @@ body {
   }
     
 }
+
+/* styling to cause delay in order to make a wave like motion */
 #dot:nth-child(1){
  animation-delay: 0.1s;
 }
@@ -500,10 +469,8 @@ body {
  animation-delay: 0.5s;
 }
 
-.container-anime-info {
-  margin: 10px;
-}
-
+/* @media to redefine styling for smaller screens such as mobile */
+/* styling for laptop sizes */
 @media screen and (max-width: 1024px) {
 
   #title {
@@ -518,6 +485,7 @@ body {
 
   .file-upload {
     width: 96%;
+    margin: 15px auto 15px 15px;
   }
 
   .card { 
@@ -525,6 +493,7 @@ body {
   }
 }
 
+/* styling for tablet sizes */
 @media screen and (max-width: 768px) {
 
   #subtitle {
@@ -547,27 +516,7 @@ body {
   }
 }
 
-@media screen and (max-width:767px) {
-  .social-icons li.title
-  {
-    display:block;
-    margin-right:0;
-    font-weight:600
-  }}
-
-.imageTest {
-  height: 200px;
-}
-
-.previous {
-  width: 100%;
-}
-
-#list {
-  list-style:none;
-  margin-right: 20px;
-}
-
+/* styling of page elements for mobile screens */
 @media screen and (max-width: 425px) {
   #title {
     font-size: 30px;
@@ -597,23 +546,25 @@ body {
   }
 
   .cell {
-    margin-bottom: 10px;
+    margin: 10px auto 10px;
   }
 
 }
 
+/* styling for footer text */
 .text-justify {
-text-align: center;
-font-family: 'Mulish', sans-serif;
-
+  text-align: center;
+  font-family: 'Mulish', sans-serif;
 }
 
+/* styling for main anime title name in description area */
 #theAnimeName {
   font-family: 'Kalam', cursive;
   color: var(--green);
 }
 
+/* anime image styling in description area */
+/* currently hidden at the moment */
 #theAnimePic {
-  max-width: 0vw;
-  max-height: 0vh;
+  display: none;
 }

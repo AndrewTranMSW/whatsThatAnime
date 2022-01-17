@@ -214,7 +214,7 @@ function imageData(image) {
         console.log("first api call")
         console.log(data);
         if (data.error != "") {
-          return alert("Even we don't know that anime! Make sure an image file was selected and try again!")
+          return alert("Even we don't know that anime! Double check your URL or make sure an image file was selected and try again!")
         }
         // at this point, we have the data but to get any aditional information about the anime, we need a url
         // this first fetch allows us to grab a url to then run another fetch request. 

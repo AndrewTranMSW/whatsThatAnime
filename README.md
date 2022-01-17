@@ -31,14 +31,14 @@ What's That Anime? is a website designed for an end user to be able to cut out t
 
 ​
 ## Deployed Link
- - [What's that Anime?](LINK TO DEPLOYED WEBSITE GOES HERE)
+ - [What's that Anime?](https://andrewtranmsw.github.io/whatsThatAnime/)
 
 
  ---
 ​
 ​
 ## Screen Shot
-![What's That Anime?](./develop/landing-page-whats-that-anime.png)
+![What's That Anime?](./develop/screenshot_whats_that_anime.png)
 ​
 
 ---
@@ -58,7 +58,7 @@ Project is created with:
 ​
 ## Functionality
 ​
-![Image](./develop/functionality-whats-that-anime.gif)
+![Image](./develop/whats_that_anime_functionality.gif)
 ​
 
 ---

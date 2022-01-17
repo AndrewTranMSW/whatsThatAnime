@@ -195,15 +195,29 @@ body {
   overflow-y: scroll;
 }
 
+.oops-options {
+  font-family: 'Mulish', sans-serif;
+  max-height: 112px;
+}
+
+h4 {
+  font-family: 'Mulish', sans-serif;
+}
+
 .button {
   font-family: 'Mulish', sans-serif;
-  background-color: var(--teal);
+  background-color: var(--green);
+  border-bottom: 4px solid var(--teal);
   color:var(--ivory);
 }
 
 .button:hover {
   font-family: 'Mulish', sans-serif;
   background-color: var(--lilac);
+}
+
+.button:focus {     
+  background-color:var(--lilac);    
 }
 
 .grid-margin-x {
@@ -213,22 +227,36 @@ body {
 
 .container-anime-info {
   padding-left: 20px;
-  background-color: #e7e6e3;
+  background-color: var(--ivory);
+  border: 1px solid var(--lilac);
+  box-shadow: 2px 2px 5px var(--lilac);
+  font-family: 'Mulish', sans-serif;
+  color: var(--black);
+}
+
+.gif-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 /* FOOTER SECTION BELOW */
 .site-footer {
+  font-family: 'Kalam', cursive;
   background-color: var(--black);
-  padding:45px 0 20px;
+  padding: 15px;;
   font-size:15px;
   line-height:24px;
   color: var(--ivory);
   padding-left: 20px;
+  text-align: center;
 }
 
 .site-footer hr {
+  font-family: 'Kalam', cursive;
   border-top-color: var(--ivory);
-  opacity:0.5
+  opacity:0.5;
 }
 
 .site-footer hr.small {
@@ -236,6 +264,7 @@ body {
 }
 
 .site-footer h6 {
+  font-family: 'Kalam', cursive;
   color:var(--green);
   font-size:16px;
   text-transform:uppercase;
@@ -244,17 +273,21 @@ body {
 }
 
 .site-footer a {
+  font-family: 'Kalam', cursive;
   color: var(--teal);
 }
 
 .site-footer a:hover {
+  font-family: 'Kalam', cursive;
   color: var(--green);
   text-decoration:none;
 }
 
 .footer-links {
   padding-left:0;
+  display:flex;  
   list-style:none;
+  justify-content: space-around;
 }
 
 .footer-links li {
@@ -262,10 +295,12 @@ body {
 }
 
 .footer-links a {
+  font-family: 'Permanent Marker', cursive;
   color:var(--teal);
 }
 
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover {
+  font-family: 'Kalam', cursive;
   color:var(--green);
   text-decoration:none;
 }
@@ -275,6 +310,7 @@ body {
 }
 
 .copyright-text {
+  font-family: 'Kalam', cursive;
   margin:0;
   color: var(--lilac);
 }
@@ -307,4 +343,20 @@ body {
 #list {
   list-style:none;
   margin-right: 20px;
+}
+
+.text-justify {
+text-align: center;
+font-family: 'Mulish', sans-serif;
+
+}
+
+#theAnimeName {
+  font-family: 'Kalam', cursive;
+  color: var(--green);
+}
+
+#theAnimePic {
+  max-width: 0vw;
+  max-height: 0vh;
 }

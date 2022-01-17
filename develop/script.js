@@ -120,7 +120,7 @@ function fetchTraceAPI(url) {
                 return response.json();
             })
             .then((res) => {
-                console.log(res);
+                loadingDots.classList.add("hide");
                 var obj = {};
                 // console.log(res.result[0].anilist.title.romaji);
                 Aniname.innerHTML = res.result[0].anilist.title.romaji;
@@ -204,7 +204,7 @@ function imageData(image) {
     // followed steps on api doc
     const formData = new FormData();
     formData.append("image", image);
-
+    loadingDots.classList.remove("hide");
     //first fetch gets basic guess on the stored file image
     fetch("https://api.trace.moe/search", {
         method: "POST",
@@ -314,6 +314,8 @@ function storage() {
 
 prevSearched.addEventListener('click', function(event) {
     if(event.target.matches('.previous')){
+        loadingDots.classList.remove("hide");
+        uploaded_pic.setAttribute("src", event.target.getAttribute("data-value"));
         fetchTraceAPI(event.target.getAttribute("data-value"));
     }
 });
@@ -346,13 +348,23 @@ function appendAnime(firstGuess) {
 
 cardOptions.addEventListener("click", (event) => {
   if(event.target.matches('.card-btn')){
+    uploaded_pic.setAttribute("src", event.target.getAttribute("data-value"));
     fetch(`https://api.trace.moe/search?anilistInfo&url=${encodeURIComponent(`${event.target.getAttribute("data-value")}`)}`)
       .then(response => response.json())
       .then((data) => {
         console.log(data);
-        // appendAnime(data);
+        loadingDots.classList.remove("hide");
         fetchTraceAPI(event.target.getAttribute("data-value"));
     })
     
   }
 });
+
+var loadingDots = document.querySelector(".loading");
+var inputUrl = document.querySelector(".url-input");
+function urlInput() {
+  let url = inputUrl.value.trim();
+  loadingDots.classList.remove("hide");
+  fetchTraceAPI(url);
+  cardOptions.classList.remove("hide");
+}

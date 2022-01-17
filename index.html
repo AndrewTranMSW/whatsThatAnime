@@ -21,52 +21,64 @@
             </div>
         </div>
     </header>
+    <input type="text" placeholder="place a url of your image" class="url-input" onchange="urlInput();"/>
 
-<br>
 <br>
 
     <!-- credits: https://codepen.io/aaronvanston/pen/yNYOXR -->
-    <div class="grid-x grid-margin-x">
-        <div class="cell small-4 large-offset-2">
-            <div class="file-upload">
-                <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
-            
-                <div class="image-upload-wrap">
-                    <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                    <div class="drag-text">
-                    <h3>Drag and drop a file or select add Image</h3>
-                    </div>
-                </div>
-            
-                <div class="file-upload-content">
-                    <img class="file-upload-image" src="#" alt="your image" />
-                    <div class="image-title-wrap">
-                    <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-                    </div>
-                </div>
-            </div>    
-        </div>
+    <div class="grid-x">
 
-        <div class="cell small-4">
-            <div class="card" style="width: 300px;">
+        <div class="cell small-12 medium-6" id="prev-searches">
+            <div class="card " id="search-card">
                 <div class="card-divider">
-                  <p>Previous Searches</p> 
+                  <p id="underline">Previous Searches</p> 
                 </div>
-                <div class="card-section">
+                <div class="card-section" id="prev">
                     <div id="previous-searches">
                         <ul id="list"></ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="cell small-12 medium-6">
+          <div class="file-upload">
+              <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )"><span id="underline-button">Add Image</span></button>
+          
+              <div class="image-upload-wrap">
+                  <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+                  <div class="drag-text">
+                  <h3>Drag and drop a file or select add Image</h3>
+                  </div>
+              </div>
+          
+              <div class="file-upload-content">
+                  <img class="file-upload-image" src="#" alt="your image" />
+                  <div class="image-title-wrap">
+                  <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                  </div>
+              </div>
+          </div>    
+        </div>
+    </div>
+
+    <div class="grid-x loading hide">
+      <div class="loader">
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+        <span id="dot"></span>
+      </div>
     </div>
     
     <div class="grid-container hide">
-    <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+    <div class="grid-x grid-margin-x small-up-12 medium-up-3">
         <div class="cell options">
         <div class="card">
             <img class="imageTest" src="">
-            <div class="card-section">
+            <div class="oops-options">
             <h4 id="anime-title">This is a row of cards.</h4>
             <p>Episode: <span id="episode-number"></span></p>
             <p>Similarty: <span id="sim"></span>%</p>
@@ -74,35 +86,36 @@
             <button class="button card-btn">Choose</button>
         </div>
         </div>
-        <div class="cell options">
-        <div class="card">
-            <img class="imageTest" src="">
-            <div class="card-section">
-            <h4 id="anime-title">This is a card.</h4>
-            <p>Episode: <span id="episode-number"></span></p>
-            <p>Similarty: <span id="sim"></span>%</p>
-            </div>
-            <button class="button card-btn">Choose</button>
-        </div>
-        </div>
-        <div class="cell options">
-        <div class="card">
-            <img class="imageTest" src="">
-            <div class="card-section">
-            <h4 id="anime-title">This is a card.</h4>
-            <p>Episode: <span id="episode-number"></span></p>
-            <p>Similarty: <span id="sim"></span>%</p>
-            </div>
-            <button class="button card-btn">Choose</button>
-        </div>
-        </div>
-    </div>
-    </div>
 
-    <h1 id="theAnimeName"></h1>
-    <div id="theAnimePic"></div>
+        <div class="cell options">
+        <div class="card">
+            <img class="imageTest" src="">
+            <div class="oops-options">
+            <h4 id="anime-title">This is a card.</h4>
+            <p>Episode: <span id="episode-number"></span></p>
+            <p>Similarty: <span id="sim"></span>%</p>
+            </div>
+            <button class="button card-btn">Choose</button>
+        </div>
+        </div>
+
+        <div class="cell options">
+        <div class="card">
+            <img class="imageTest" src="">
+            <div class="oops-options">
+            <h4 id="anime-title">This is a card.</h4>
+            <p>Episode: <span id="episode-number"></span></p>
+            <p>Similarty: <span id="sim"></span>%</p>
+            </div>
+            <button class="button card-btn">Choose</button>
+        </div>
+        </div>
+    </div>
+    </div>
     
-    <div class="container hide">
+    <div class="container-anime-info hide">
+        <h1 id="theAnimeName"></h1>
+        <div id="theAnimePic"></div>
         <!-- Div for the Anime facts as a list, the <span> tag nested in the <li> tag will populate the anime info -->
         <div class="anime-info">
             <ul>
@@ -121,6 +134,9 @@
         </div>
         <!-- Gifs will populate here -->
         <div class="gif-container" id="gifs"></div>
+        <br>
+        <br>
+        <br>
     </div>
 
 
@@ -131,25 +147,16 @@
       <div class="row">
         <div class="col-sm-12 col-md-6">
           <h6>About</h6>
-          <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, officiis! Accusamus ducimus corrupti sequi. Illo non, aliquid quos dolorum voluptates quia natus delectus ipsa dolore dignissimos veniam modi! Aspernatur, cumque.</p>
+          <p class="text-justify">A few nerds learning to code were tasked with creating an app using multiple API sources, thus this page was created. Now we never have to ask for the sauce again.</p>
         </div>
 
         <div class="col-xs-6 col-md-3">
-          <h6>Categories</h6>
+          <h6>Creators</h6>
           <ul class="footer-links">
-            <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-            <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-xs-6 col-md-3">
-          <h6>Quick Links</h6>
-          <ul class="footer-links">
-            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+            <li><a href="https://www.github.com/amiramonte" target="_blank">Alex Miramontes</a></li>
+            <li><a href="https://github.com/AndrewTranMSW" target="_blank">Andrew Tran</a></li>
+            <li><a href="https://github.com/truont2" target="_blank">Takara Truong</a></li>
+            <li><a href="https://github.com/Acanthodoris" target="_blank">Rebeccah Mullan</a></li>
           </ul>
         </div>
       </div>
@@ -162,20 +169,11 @@
           <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved 
           </p>
         </div>
-
-        <div class="col-md-4 col-sm-6 col-xs-12">
-          <ul class="social-icons">
-            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-          </ul>
-        </div>
       </div>
     </div>
 </footer>
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/js/foundation.min.js" crossorigin="anonymous"></script>
 <script src="./develop/script.js"></script>
 </body>

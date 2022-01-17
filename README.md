@@ -12,6 +12,7 @@
 - [Screen Shot](#screen-shot)
 - [Technologies](#technologies)
 - [Functionality](#functionality)
+- [Resources](#resources)
 - [Authors](#authors)
 ​
 
@@ -62,6 +63,16 @@ Project is created with:
 
 ---
 
+## Resources 
+* https://www.freecodecamp.org/news/html-page-width-height/
+* https://www.w3docs.com/learn-javascript/file-and-filereader.html
+* https://www.geeksforgeeks.org/how-to-create-a-dot-loading-animation-using-html-and-css/
+* https://get.foundation/sites/docs/card.html
+* https://speckyboy.com/custom-file-upload-fields/
+* https://codepen.io/aaronvanston/pen/yNYOXR
+* https://www.canva.com/
+
+---
 ## Authors
 ​
 - Rebeccah Mullan

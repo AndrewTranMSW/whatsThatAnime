@@ -34,7 +34,7 @@
 
 #title {
     font-family: 'Permanent Marker', cursive;
-    font-size: 10em;
+    font-size: 5em;
     color: var(--black);
     text-shadow: 3px 3px 3px var(--lilac);
 }
@@ -48,12 +48,13 @@
 .file-upload {
     font-family: 'Kalam', cursive;
     background-color: var(--ivory);
-    width: 600px;
-    margin: 0 auto;
+    width: 70%;
+    margin: 15px auto 15px 15px;
     padding: 20px;
     border-radius: 4px;
     border: 1px solid var(--lilac);
     box-shadow: 2px 2px 5px var(--lilac);
+    height: 90%;
   }
   
   .file-upload-btn {
@@ -169,10 +170,11 @@
 
 body {
     background-image: linear-gradient(var(--lilac), var(--black));
+    margin: 10px;
 }
 
 .card {
-  margin: 0 20px 20px 20px;
+  margin: 15px 15px 15px auto;
   border-radius: 4px;
   border: 1px solid var(--lilac);
   box-shadow: 2px 2px 5px var(--lilac);
@@ -187,14 +189,30 @@ body {
   border-bottom: 4px solid var(--teal);
 }
 
-.card-section {
-  min-height: 223px;
+#prev {
+  height: 248px;
   background-color: var(--ivory);
+  overflow-y: scroll;
+}
+
+.card-section {
+  height: 170px;
+  background-color: var(--ivory);
+}
+
+.oops-options {
+  font-family: 'Mulish', sans-serif;
+  max-height: 112px;
+}
+
+h4 {
+  font-family: 'Mulish', sans-serif;
 }
 
 .button {
   font-family: 'Mulish', sans-serif;
-  background-color: var(--teal);
+  background-color: var(--green);
+  border-bottom: 4px solid var(--teal);
   color:var(--ivory);
 }
 
@@ -203,24 +221,48 @@ body {
   background-color: var(--lilac);
 }
 
+.button:focus {     
+  background-color:var(--lilac);    
+}
+
 .grid-margin-x {
-  min-height: 100vh;
   max-width: 99vw;
+  min-height: 40vh;
+}
+
+.container-anime-info {
+  padding-left: 20px;
+  background-color: var(--ivory);
+  border: 1px solid var(--lilac);
+  box-shadow: 2px 2px 5px var(--lilac);
+  font-family: 'Mulish', sans-serif;
+  color: var(--black);
+}
+
+.gif-container {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 /* FOOTER SECTION BELOW */
 
 .site-footer {
+  font-family: 'Kalam', cursive;
   background-color: var(--black);
-  padding:45px 0 20px;
+  padding: 15px;;
   font-size:15px;
   line-height:24px;
   color: var(--ivory);
+  padding-left: 20px;
+  text-align: center;
 }
 
 .site-footer hr {
+  font-family: 'Kalam', cursive;
   border-top-color: var(--ivory);
-  opacity:0.5
+  opacity:0.5;
 }
 
 .site-footer hr.small {
@@ -228,6 +270,7 @@ body {
 }
 
 .site-footer h6 {
+  font-family: 'Kalam', cursive;
   color:var(--green);
   font-size:16px;
   text-transform:uppercase;
@@ -236,17 +279,21 @@ body {
 }
 
 .site-footer a {
+  font-family: 'Kalam', cursive;
   color: var(--teal);
 }
 
 .site-footer a:hover {
-  color:#3366cc;
+  font-family: 'Kalam', cursive;
+  color: var(--green);
   text-decoration:none;
 }
 
 .footer-links {
   padding-left:0;
-  list-style:none
+  display:flex;  
+  list-style:none;
+  justify-content: space-around;
 }
 
 .footer-links li {
@@ -254,11 +301,13 @@ body {
 }
 
 .footer-links a {
+  font-family: 'Permanent Marker', cursive;
   color:var(--teal);
 }
 
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover {
-  color:#3366cc;
+  font-family: 'Kalam', cursive;
+  color:var(--green);
   text-decoration:none;
 }
 
@@ -281,6 +330,7 @@ body {
 }
 
 .copyright-text {
+  font-family: 'Kalam', cursive;
   margin:0;
   color: var(--lilac);
 }
@@ -365,7 +415,139 @@ body {
   background-color:#ea4c89
 }
 
-@media (max-width:767px) {
+html { background-color: #000; } 
+body {
+    min-height: 100vh;
+    max-width: 100vw;
+    margin: 0 auto;
+}
+
+#search-card {
+  width: 70%;
+}
+
+.cell {
+  height: fit-content
+}
+
+.url-input {
+  z-index: 100;
+  background: transparent;
+  margin: 15px auto;
+  width: 71%;
+  border: 2px dashed var(--ivory);
+}
+
+::placeholder {
+  text-align: center;
+  font-family: 'Kalam', cursive;
+  color: var(--ivory);
+  font-size: 20px;
+}
+
+#underline{
+  text-decoration: underline;
+}
+
+#underline-button {
+  text-decoration: underline;
+}
+
+.loader{
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+    
+}
+/* Creating the dots */
+#dot{
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: var(--ivory);
+  animation: loading 1s linear infinite;
+}
+/* Creating the loading animation*/
+@keyframes loading {
+  0%{
+   transform: translateX(0);
+  }
+  25%{
+   transform: translateX(15px);
+  }
+  50%{
+   transform: translateX(-15px);
+  }
+  100%{
+   transform: translateX(0);
+  }
+    
+}
+#dot:nth-child(1){
+ animation-delay: 0.1s;
+}
+#dot:nth-child(2){
+ animation-delay: 0.2s;
+}
+#dot:nth-child(3){
+ animation-delay: 0.3s;
+}
+#dot:nth-child(4){
+ animation-delay: 0.4s;
+}
+#dot:nth-child(5){
+ animation-delay: 0.5s;
+}
+
+.container-anime-info {
+  margin: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  #title {
+    font-size: 3em;
+    text-align: center;
+  }
+
+  #subtitle {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .file-upload {
+    width: 96%;
+  }
+
+  .card { 
+    margin: 15px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  #subtitle {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .file-upload {
+    width: 96%;
+    margin: 0 auto;
+  }
+
+  .card { 
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  #search-card {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width:767px) {
   .social-icons li.title
   {
     display:block;
@@ -384,4 +566,54 @@ body {
 #list {
   list-style:none;
   margin-right: 20px;
+}
+
+@media screen and (max-width: 425px) {
+  #title {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  #subtitle {
+    font-size: 15px;
+    text-align: center;
+  }
+
+  .file-upload {
+    width: 94%;
+    margin: 0 auto;
+  }
+
+  .card { 
+    margin: 0 auto;
+  }
+
+  #search-card {
+    width: 94%;
+  }
+
+  .url-input {
+    width: 94%;
+  }
+
+  .cell {
+    margin-bottom: 10px;
+  }
+
+}
+
+.text-justify {
+text-align: center;
+font-family: 'Mulish', sans-serif;
+
+}
+
+#theAnimeName {
+  font-family: 'Kalam', cursive;
+  color: var(--green);
+}
+
+#theAnimePic {
+  max-width: 0vw;
+  max-height: 0vh;
 }

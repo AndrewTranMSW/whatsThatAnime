@@ -231,12 +231,15 @@ h4 {
 }
 
 .container-anime-info {
+  margin: 10px;
   padding-left: 20px;
+  padding-right: 20px;
   background-color: var(--ivory);
   border: 1px solid var(--lilac);
   box-shadow: 2px 2px 5px var(--lilac);
   font-family: 'Mulish', sans-serif;
   color: var(--black);
+  border-radius: 4px 4px 0px 0px;
 }
 
 .gif-container {
@@ -436,6 +439,8 @@ body {
   margin: 15px auto;
   width: 71%;
   border: 2px dashed var(--ivory);
+  font-family: 'Mulish', sans-serif;
+  border-radius: 4px;
 }
 
 ::placeholder {
@@ -498,10 +503,6 @@ body {
 }
 #dot:nth-child(5){
  animation-delay: 0.5s;
-}
-
-.container-anime-info {
-  margin: 10px;
 }
 
 @media screen and (max-width: 1024px) {

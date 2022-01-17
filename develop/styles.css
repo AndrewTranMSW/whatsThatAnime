@@ -5,6 +5,7 @@
     margin: 0;
     
 }
+
 /* variables for page colors */
  :root {
     --lilac: #3B2244;
@@ -24,7 +25,7 @@ body {
     margin: 0 auto;
 }
 
- /* header bacgkrond and styling */
+ /* header background and styling */
 .hero-section {
     background-image: url("./newbackground.png");
     background-size: cover;
@@ -41,7 +42,7 @@ body {
     justify-content: center;        
 }
 
-/* main page tite */
+/* main page title */
 #title {
     font-family: 'Permanent Marker', cursive;
     font-size: 5em;
@@ -248,7 +249,7 @@ h4 {
   min-height: 40vh;
 }
 
-/* styling for the area in which anime infor is populated */
+/* styling for the area in which anime info is populated */
 .container-anime-info {
   margin: 10px;
   padding-left: 20px;
@@ -279,7 +280,7 @@ h4 {
   width: 100%;
 }
 
-/* stylinf dor list element in previous search */
+/* styling for list element in previous search */
 #list {
   list-style:none;
   margin-right: 20px;
@@ -387,7 +388,7 @@ h4 {
   height: fit-content
 }
 
-/* styliong of url input element on top of page */
+/* styling of url input element on top of page */
 .url-input {
   z-index: 100;
   background: transparent;
@@ -398,7 +399,7 @@ h4 {
   border-radius: 4px;
 }
 
-/* placeholder styling inside of iunput element */
+/* placeholder styling inside of input element */
 ::placeholder {
   text-align: center;
   font-family: 'Kalam', cursive;
@@ -468,12 +469,8 @@ h4 {
  animation-delay: 0.5s;
 }
 
-<<<<<<< HEAD
-=======
-
 /* @media to redefine styling for smaller screens such as mobile */
 /* styling for laptop sizes */
->>>>>>> dev
 @media screen and (max-width: 1024px) {
 
   #title {
@@ -496,7 +493,7 @@ h4 {
   }
 }
 
-/* stylinf for tablet sizes */
+/* styling for tablet sizes */
 @media screen and (max-width: 768px) {
 
   #subtitle {
@@ -554,13 +551,13 @@ h4 {
 
 }
 
-/* stylinf for footer text */
+/* styling for footer text */
 .text-justify {
   text-align: center;
   font-family: 'Mulish', sans-serif;
 }
 
-/* stylinf for main anime title name in description area */
+/* styling for main anime title name in description area */
 #theAnimeName {
   font-family: 'Kalam', cursive;
   color: var(--green);
